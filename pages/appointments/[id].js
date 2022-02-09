@@ -276,9 +276,9 @@ const AppointmentId = () => {
                                     <p className="fs-6">
                                       Some quick example text to build on the
                                       card title and make up the bulk of the
-                                      card's content. Some quick example text to
-                                      build on the card title and make up the
-                                      bulk of the card's content.
+                                      card&apos;s content. Some quick example
+                                      text to build on the card title and make
+                                      up the bulk of the card&apos;s content.
                                     </p>
                                   </div>
                                 </div>
@@ -1166,10 +1166,10 @@ const AppointmentId = () => {
                                         <p className="fs-6">
                                           Some quick example text to build on
                                           the card title and make up the bulk of
-                                          the card's content. Some quick example
-                                          text to build on the card title and
-                                          make up the bulk of the card's
-                                          content.
+                                          the card&apos;s content. Some quick
+                                          example text to build on the card
+                                          title and make up the bulk of the
+                                          card&apos;s content.
                                         </p>
                                       </div>
                                     </div>

@@ -13,7 +13,7 @@ const ProfileSettings = () => {
                   <div className="card-body">
                     <div className="row">
                       <div className="col-sm">
-                        <form className="needs-validation" novalidate>
+                        <form className="needs-validation" noValidate>
                           <div className="form-row row align-items-center">
                             <div className="col-md-2">
                               <div className="form-group">
@@ -48,7 +48,9 @@ const ProfileSettings = () => {
                           </div>
                           <div className="form-row row">
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom01">First name</label>
+                              <label htmlFor="validationCustom01">
+                                First name
+                              </label>
                               <input
                                 type="text"
                                 className="form-control"
@@ -60,7 +62,9 @@ const ProfileSettings = () => {
                               <div className="valid-feedback">Looks good!</div>
                             </div>
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom02">Last name</label>
+                              <label htmlFor="validationCustom02">
+                                Last name
+                              </label>
                               <input
                                 type="text"
                                 className="form-control"
@@ -74,7 +78,9 @@ const ProfileSettings = () => {
                           </div>
                           <div className="form-row row">
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom01">Email Id</label>
+                              <label htmlFor="validationCustom01">
+                                Email Id
+                              </label>
                               <input
                                 type="email"
                                 className="form-control"
@@ -86,7 +92,9 @@ const ProfileSettings = () => {
                               <div className="valid-feedback">Looks good!</div>
                             </div>
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom02">Phone No.</label>
+                              <label htmlFor="validationCustom02">
+                                Phone No.
+                              </label>
                               <input
                                 type="number"
                                 className="form-control"
@@ -100,7 +108,7 @@ const ProfileSettings = () => {
                           </div>
                           <div className="form-row row">
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom01">
+                              <label htmlFor="validationCustom01">
                                 Qualification
                               </label>
                               <input
@@ -114,7 +122,7 @@ const ProfileSettings = () => {
                               <div className="valid-feedback">Looks good!</div>
                             </div>
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom02">
+                              <label htmlFor="validationCustom02">
                                 Experience (in Years)
                               </label>
                               <input
@@ -130,7 +138,7 @@ const ProfileSettings = () => {
                           </div>
                           <div className="form-row row">
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom01">
+                              <label htmlFor="validationCustom01">
                                 Specialization
                               </label>
                               <select
@@ -145,7 +153,9 @@ const ProfileSettings = () => {
                               <div className="valid-feedback">Looks good!</div>
                             </div>
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom02">Skype ID</label>
+                              <label htmlFor="validationCustom02">
+                                Skype ID
+                              </label>
                               <input
                                 type="text"
                                 className="form-control"
@@ -165,7 +175,9 @@ const ProfileSettings = () => {
                                   placeholder="Enter Your Bio"
                                   id="floatingTextarea"
                                 ></textarea>
-                                <label for="floatingTextarea">Your Bio</label>
+                                <label htmlFor="floatingTextarea">
+                                  Your Bio
+                                </label>
                               </div>
                             </div>
                           </div>

@@ -16,7 +16,7 @@ const Header = () => {
           </a>
         </div>
 
-        <a onclick="myFunction()" id="toggle_btn">
+        <a onClick="myFunction()" id="toggle_btn">
           <i className="fe fe-text-align-left"></i>
         </a>
         <div className="top-nav-search">
@@ -32,7 +32,7 @@ const Header = () => {
           </form>
         </div>
 
-        <a onclick="mediaFunction()" className="mobile_btn" id="mobile_btn">
+        <a onClick="mediaFunction()" className="mobile_btn" id="mobile_btn">
           <i className="fa fa-bars"></i>
         </a>
 

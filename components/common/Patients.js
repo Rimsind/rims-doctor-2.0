@@ -36,7 +36,7 @@ const Patients = () => {
       <td>
         <div className="status-toggle">
           <input type="checkbox" id="status_1" className="check" checked />
-          <label for="status_1" className="checktoggle">
+          <label htmlFor="status_1" className="checktoggle">
             checkbox
           </label>
         </div>

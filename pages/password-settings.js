@@ -13,10 +13,10 @@ const PasswordSettings = () => {
                   <div className="card-body">
                     <div className="row">
                       <div className="col-sm">
-                        <form className="needs-validation" novalidate>
+                        <form className="needs-validation" noValidate>
                           <div className="form-row row">
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom01">
+                              <label htmlFor="validationCustom01">
                                 Old Password
                               </label>
                               <input
@@ -33,7 +33,7 @@ const PasswordSettings = () => {
                           </div>
                           <div className="form-row row">
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom01">
+                              <label htmlFor="validationCustom01">
                                 New Password
                               </label>
                               <input
@@ -53,7 +53,7 @@ const PasswordSettings = () => {
                           </div>
                           <div className="form-row row">
                             <div className="col-md-6 mb-3">
-                              <label for="validationCustom01">
+                              <label htmlFor="validationCustom01">
                                 Retype New Password
                               </label>
                               <input

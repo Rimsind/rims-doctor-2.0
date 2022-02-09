@@ -440,7 +440,7 @@ const Index = () => {
                                 className="check"
                                 checked
                               />
-                              <label for="status_1" className="checktoggle">
+                              <label htmlFor="status_1" className="checktoggle">
                                 checkbox
                               </label>
                             </div>
@@ -493,7 +493,7 @@ const Index = () => {
                                 className="check"
                                 checked
                               />
-                              <label for="status_2" className="checktoggle">
+                              <label htmlFor="status_2" className="checktoggle">
                                 checkbox
                               </label>
                             </div>
@@ -546,7 +546,7 @@ const Index = () => {
                                 className="check"
                                 checked
                               />
-                              <label for="status_3" className="checktoggle">
+                              <label htmlFor="status_3" className="checktoggle">
                                 checkbox
                               </label>
                             </div>
@@ -599,7 +599,7 @@ const Index = () => {
                                 className="check"
                                 checked
                               />
-                              <label for="status_4" className="checktoggle">
+                              <label htmlFor="status_4" className="checktoggle">
                                 checkbox
                               </label>
                             </div>
@@ -652,7 +652,7 @@ const Index = () => {
                                 className="check"
                                 checked
                               />
-                              <label for="status_5" className="checktoggle">
+                              <label htmlFor="status_5" className="checktoggle">
                                 checkbox
                               </label>
                             </div>
