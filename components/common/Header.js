@@ -174,7 +174,7 @@ const Header = () => {
                 <img
                   className="rounded-circle"
                   src="/assets/img/profiles/avatar-01.jpg"
-                  width="31"
+                  width="50"
                   alt="Ryan Taylor"
                 />
               </span>

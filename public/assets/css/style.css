@@ -1536,7 +1536,8 @@ button.bg-danger:hover {
 .user-header {
   background-color: #f9f9f9;
   display: flex;
-  padding: 10px 15px;
+  padding: 15px 10px;
+  width: 220px;
 }
 .user-header .user-text {
   margin-left: 10px;
@@ -1913,10 +1914,7 @@ html.menu-opened body {
   min-height: 100vh;
 }
 .page-wrapper {
-  margin-left: 240px;
-  padding-top: 60px;
-  position: relative;
-  transition: all 0.4s ease;
+  margin-top: 100px;
 }
 .page-wrapper > .content {
   padding: 1.875rem 1.875rem 0;
@@ -4720,4 +4718,20 @@ table.table-inbox tbody tr.checked {
 
 .custom-tab .tablinks.active {
   background-color: #09e5ab !important;
+}
+
+/* Doctor Panel Header */
+ul.navbar-nav li.nav-item a {
+  text-decoration: none;
+  margin-left: 20px;
+  color: #333;
+  font-size: 16px;
+}
+
+li.nav-item span.user-img img {
+  width: 50px;
+}
+
+li.nav-item .dropdown-menu {
+  margin-left: -120px;
 }

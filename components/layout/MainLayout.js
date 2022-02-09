@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Script from "next/script";
-import { Header, SideBar } from "components/common";
+import { DoctorNavbar } from "components/common";
 const MainLayout = ({ children }) => {
   return (
     <>
@@ -15,8 +15,7 @@ const MainLayout = ({ children }) => {
       <Script src="/assets/js/mediasliding.min.js"></Script>
       {/* <Script src="/assets/js/tab.js"></Script> */}
       <div className="main-wrapper" id="main-wrapper">
-        <Header />
-        <SideBar />
+        <DoctorNavbar />
         <main>{children}</main>
       </div>
     </>
