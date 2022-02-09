@@ -167,6 +167,7 @@ table.table td h2.table-avatar {
 }
 table.table td h2 a {
   color: #333;
+  text-decoration: none;
 }
 table.table td h2 a:hover {
   color: #00d0f1;
@@ -1776,6 +1777,7 @@ html.menu-opened body {
   position: relative;
   transition: all 0.2s ease-in-out 0s;
   color: #f1f1f1;
+  text-decoration: none;
 }
 .sidebar-menu ul li a i {
   display: inline-block;

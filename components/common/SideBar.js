@@ -48,15 +48,17 @@ const SideBar = () => {
               <li>
                 <Link href="/password-settings">
                   <a>
-                    <i className="fas fa-key"></i>{" "}
+                    <i className="fas fa-key"></i>
                     <span>Password Settings</span>
                   </a>
                 </Link>
               </li>
               <li>
-                <a>
-                  <i className="fas fa-sign-out-alt"></i> <span>Logout</span>
-                </a>
+                <Link href="/">
+                  <a>
+                    <i className="fas fa-sign-out-alt"></i> <span>Logout</span>
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>
