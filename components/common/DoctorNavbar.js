@@ -1,9 +1,11 @@
 import Link from "next/link";
+import Topbar from "./Topbar";
 
 const DoctorNavbar = () => {
   return (
     <>
       <div className="header">
+        <Topbar />
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">

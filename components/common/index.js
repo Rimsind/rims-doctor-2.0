@@ -6,6 +6,7 @@ import AllergyCard from "./AllergyCard";
 import Appointments from "./Appointments";
 import Patients from "./Patients";
 import DoctorNavbar from "./DoctorNavbar";
+import Footer from "./Footer";
 
 export {
   // SideBar,
@@ -16,4 +17,5 @@ export {
   Patients,
   Appointments,
   DoctorNavbar,
+  Footer,
 };

@@ -1914,7 +1914,7 @@ html.menu-opened body {
   min-height: 100vh;
 }
 .page-wrapper {
-  margin-top: 100px;
+  margin-top: 125px;
 }
 .page-wrapper > .content {
   padding: 1.875rem 1.875rem 0;
@@ -4721,6 +4721,39 @@ table.table-inbox tbody tr.checked {
 }
 
 /* Doctor Panel Header */
+
+/* Topbar */
+.topbar {
+  background-color: #09e5ab;
+  color: #fff;
+}
+
+.topbar-item-icon i {
+  color: #0d6efd;
+  font-size: 18px;
+}
+.topbar-item-icon-social i {
+  color: #fff;
+}
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+  .topbar {
+    display: none;
+  }
+}
+
+/* Header */
+nav.navbar {
+  background-color: #e1f3ff !important;
+}
+
+@media screen and (min-width: 850px) and (max-width: 1180px) {
+  .navbar-nav li.nav-item a.nav-link i,
+  .navbar-nav li.nav-item a.nav-link span {
+    font-size: 11px;
+  }
+}
+
 ul.navbar-nav li.nav-item a {
   text-decoration: none;
   margin-left: 20px;
@@ -4734,4 +4767,14 @@ li.nav-item span.user-img img {
 
 li.nav-item .dropdown-menu {
   margin-left: -120px;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #15558d;
+}
+
+.copyright {
+  background-color: #15558d;
 }

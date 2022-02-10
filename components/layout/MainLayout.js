@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
-import { DoctorNavbar } from "components/common";
+import { DoctorNavbar, Footer } from "components/common";
+
 const MainLayout = ({ children }) => {
   return (
     <>
@@ -17,6 +18,7 @@ const MainLayout = ({ children }) => {
       <div className="main-wrapper" id="main-wrapper">
         <DoctorNavbar />
         <main>{children}</main>
+        <Footer />
       </div>
     </>
   );
