@@ -16,7 +16,7 @@ const Index = () => {
                     </div>
                     <div className="col-md-3 col-sm-12 col-lg-3">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select Items</option>
