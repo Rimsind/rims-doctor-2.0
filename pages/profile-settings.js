@@ -1,7 +1,10 @@
+import { Breadcrumb } from "components/common";
+
 const ProfileSettings = () => {
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
+        <Breadcrumb title="Profile Settings" />
         <div className="content container-fluid">
           <div className="page-header">
             <div className="row">

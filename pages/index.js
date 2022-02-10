@@ -1,17 +1,13 @@
+import { Breadcrumb } from "components/common";
+
 const Index = () => {
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
+        <Breadcrumb title="Dashboard" />
         <div className="content container-fluid">
           <div className="page-header">
-            <div className="row">
-              <div className="col-sm-12">
-                <h3 className="page-title">Welcome Dr. Samir Barman!</h3>
-                <ul className="breadcrumb">
-                  <li className="breadcrumb-item active">Dashboard</li>
-                </ul>
-              </div>
-            </div>
+            <h3 className="page-title">Welcome Dr. Samir Barman!</h3>
           </div>
 
           <div className="row">

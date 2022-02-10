@@ -4769,6 +4769,21 @@ li.nav-item .dropdown-menu {
   margin-left: -120px;
 }
 
+/* Breadcrumb */
+.breadcrumb {
+  margin-top: 140px;
+  background-color: #15558d;
+  padding: 1rem 0;
+  padding-top: 1rem !important;
+  color: #fff;
+}
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+  .breadcrumb {
+    margin-top: -33px;
+  }
+}
+
 /* Footer */
 
 .footer {

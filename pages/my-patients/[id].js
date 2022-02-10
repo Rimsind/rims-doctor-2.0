@@ -1,14 +1,18 @@
-import { AllergyCard, NotesCard, PatientDemographics } from "components/common";
+import {
+  AllergyCard,
+  Breadcrumb,
+  NotesCard,
+  PatientDemographics,
+} from "components/common";
 const MyPatientId = () => {
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
+        <Breadcrumb title="My Patients" />
         <div className="content container-fluid">
           <div className="page-header">
             <div className="row">
-              <div className="col-sm-12 col-md-7">
-                <h3 className="page-title">My Patients</h3>
-              </div>
+              <div className="col-sm-12 col-md-7"></div>
               <div className="col-md-5 col-sm-12">
                 <div className="patient-btn-group d-flex justify-content-end">
                   <div className="btn-group-item me-2 shadow-sm">

@@ -7,6 +7,7 @@ import Appointments from "./Appointments";
 import Patients from "./Patients";
 import DoctorNavbar from "./DoctorNavbar";
 import Footer from "./Footer";
+import Breadcrumb from "./Breadcrumb";
 
 export {
   // SideBar,
@@ -18,4 +19,5 @@ export {
   Appointments,
   DoctorNavbar,
   Footer,
+  Breadcrumb,
 };

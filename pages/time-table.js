@@ -1,16 +1,11 @@
+import { Breadcrumb } from "components/common";
+
 const TimeTable = () => {
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
+        <Breadcrumb title="Time Table" />
         <div className="content container-fluid">
-          <div className="page-header">
-            <div className="row">
-              <div className="col-sm-12">
-                <h3 className="page-title">My Time Table</h3>
-              </div>
-            </div>
-          </div>
-
           <div className="row">
             <div className="col-sm-12">
               <div className="card">
