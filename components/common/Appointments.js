@@ -27,8 +27,8 @@ const Appointments = () => {
         <span className="text-primary d-block">11.00 AM - 11.15 AM</span>
       </td>
       <td>
-        <span class="btn btn-sm bg-success-light mx-1">Paid</span>
-        <span class="btn btn-sm bg-danger-light">Not Paid</span>
+        <span className="btn btn-sm bg-success-light mx-1">Paid</span>
+        <span className="btn btn-sm bg-danger-light">Not Paid</span>
       </td>
       <td>
         <div className="status-toggle">

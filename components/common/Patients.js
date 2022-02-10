@@ -27,11 +27,11 @@ const Patients = () => {
 
       <td>
         <a
-          class="btn btn-sm bg-primary-light"
+          className="btn btn-sm bg-primary-light"
           data-bs-toggle="modal"
           href="#edit_specialities_details"
         >
-          <i class="fe fe-eye"></i> View
+          <i className="fe fe-eye"></i> View
         </a>
       </td>
     </>
