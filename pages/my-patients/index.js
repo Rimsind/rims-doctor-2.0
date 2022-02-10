@@ -59,12 +59,12 @@ const Index = () => {
                     <table className="datatable table table-hover table-center mb-0">
                       <thead>
                         <tr>
-                          <th>Doctor Name</th>
-                          <th>Speciality</th>
+                          <th>Patient Id</th>
                           <th>Patient Name</th>
-                          <th>Apointment Time</th>
-                          <th>Status</th>
-                          <th className="text-end">Amount</th>
+                          <th>Gender</th>
+                          <th>Age</th>
+                          <th>Last Apointment</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
