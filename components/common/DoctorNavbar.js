@@ -64,22 +64,6 @@ const DoctorNavbar = () => {
                     </a>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link href="/password-settings">
-                    <a className="nav-link">
-                      <i className="me-1 fas fa-key"></i>
-                      <span>Password Settings</span>
-                    </a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/">
-                    <a className="nav-link">
-                      <i className="me-1 fas fa-sign-out-alt"></i>{" "}
-                      <span>Logout</span>
-                    </a>
-                  </Link>
-                </li>
               </ul>
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item dropdown has-arrow">
