@@ -1,29 +1,31 @@
 import Link from "next/link";
-const Appointments = () => {
+const Appointments = ({ data }) => {
   return (
     <>
-      <td>#01</td>
+      <td>{data.id}</td>
 
       <td>
         <h2 className="table-avatar">
-          <Link href={`/appointments/1`}>
+          <Link href={`/appointments/${data?.id}`}>
             <a className="avatar avatar-sm me-2">
               <img
                 className="avatar-img rounded-circle"
-                src="/assets/img/patients/patient1.jpg"
+                src={data?.patient?.image?.url}
                 alt="User Image"
               />
             </a>
           </Link>
-          <Link href={`/appointments/1`}>
-            <a>Charlene Reed </a>
+          <Link href={`/appointments/subjective-information?id=${data?.id}`}>
+            <a>
+              {data?.patient?.first_name} {data?.patient?.last_name}
+            </a>
           </Link>
         </h2>
       </td>
-      <td>Male</td>
+      <td>{data?.patient?.gender}</td>
       <td>35</td>
       <td>
-        9 Nov 2019
+        {data?.date}
         <span className="text-primary d-block">11.00 AM - 11.15 AM</span>
       </td>
       <td>

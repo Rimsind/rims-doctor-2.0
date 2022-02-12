@@ -1,13 +1,34 @@
 import { Breadcrumb } from "components/common";
+import { useAuth } from "context";
+import useSWR from "swr";
+import { apiUrl } from "config/api";
+import axios from "axios";
 
 const Index = () => {
+  const { auth } = useAuth();
+  const { data } = useSWR(
+    `${apiUrl}/doctors/${auth.user?.profileId}`,
+    async (url) => {
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+      });
+      const result = res.data;
+      return result;
+    }
+  );
+  console.log(data);
+
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
         <Breadcrumb title="Dashboard" />
         <div className="content container-fluid">
           <div className="page-header">
-            <h3 className="page-title">Welcome Dr. Samir Barman!</h3>
+            <h3 className="page-title">
+              Welcome Dr. {data?.firstName} {data?.lastName}!
+            </h3>
           </div>
 
           <div className="row">

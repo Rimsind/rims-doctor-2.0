@@ -1,6 +1,23 @@
 import { Appointments, Breadcrumb } from "components/common";
-
+import useSWR from "swr";
+import { apiUrl } from "config/api";
+import axios from "axios";
+import { useAuth } from "context";
 const Index = () => {
+  const { auth } = useAuth();
+
+  const { data } = useSWR(
+    `${apiUrl}/appointments?doctor=${auth.user?.profileId}`,
+    async (url) => {
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+      });
+      const result = res.data;
+      return result;
+    }
+  );
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
@@ -83,9 +100,11 @@ const Index = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <Appointments />
-                        </tr>
+                        {data?.map((items, index) => (
+                          <tr>
+                            <Appointments data={items} key={index} />
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>

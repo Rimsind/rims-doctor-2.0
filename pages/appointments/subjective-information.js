@@ -4,7 +4,27 @@ import {
   NotesCard,
   PatientDemographics,
 } from "components/common";
-const AppointmentId = () => {
+import { useRouter } from "next/router";
+import useSWR from "swr";
+import { apiUrl } from "config/api";
+import axios from "axios";
+import { useAuth } from "context";
+import Link from "next/link";
+import { GeneralInfo } from "components/subjectiveForm";
+const subjectiveInformation = () => {
+  const { id } = useRouter().query;
+  const { auth } = useAuth();
+
+  const { data } = useSWR(`${apiUrl}/appointments/${id}`, async (url) => {
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${auth.token}`,
+      },
+    });
+    const result = res.data;
+    return result;
+  });
+
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
@@ -32,7 +52,7 @@ const AppointmentId = () => {
 
           <div className="row">
             <div className="col-md-2 col-lg-2 col-xl-2">
-              <PatientDemographics />
+              <PatientDemographics patientInfo={data?.patient} />
               <AllergyCard />
               <NotesCard />
             </div>
@@ -43,7 +63,6 @@ const AppointmentId = () => {
                     <div className="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                       <div
                         className="tablinks diag-inner-content bg-primary pt-4 pb-1 text-center active"
-                        // onclick={formTab(event,"subjective")}
                         id="defaultOpen"
                       >
                         <p className="fs-5 fw-bold text-light">
@@ -52,13 +71,14 @@ const AppointmentId = () => {
                       </div>
                     </div>
                     <div className="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                      <div
-                        className="tablinks diag-inner-content bg-primary pt-4 pb-1 text-center"
-                        // onclick="formTab(event, 'assesment')"
-                      >
-                        <p className="fs-5 fw-bold text-light">
-                          Clinical Assesment
-                        </p>
+                      <div className="tablinks diag-inner-content bg-primary pt-4 pb-1 text-center">
+                        <Link
+                          href={`/appointments/clinical-examination?id=${id}`}
+                        >
+                          <p className="fs-5 fw-bold text-light">
+                            Clinical Assesment
+                          </p>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -142,365 +162,12 @@ const AppointmentId = () => {
                           id="tab-1"
                           className="tab-pane fade show active"
                         >
-                          <div className="general-information-form ">
-                            <div className="max-w-6xl mx-auto md:py-10">
-                              <div className="space-y-5 border-2 p-10 rounded">
-                                <div className="space-y-2 pb-5">
-                                  <form>
-                                    <div className="gen-form">
-                                      <div className="row">
-                                        <div className="col-md-3">
-                                          <h3>Race / Ethnicity</h3>
-                                        </div>
-                                        <div className="col-md-9">
-                                          <div className="row">
-                                            <div className="col-md-3">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="race"
-                                                    value="Asian"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    Asian
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-3">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="race"
-                                                    value="African"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    African
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-3">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="race"
-                                                    value="European"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    European
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-3">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="race"
-                                                    value="North American"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    North American
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-3">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="race"
-                                                    value="South American"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    South American
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-3">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="race"
-                                                    value="Australian"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    Australian
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-3">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="race"
-                                                    value="Others"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    Others
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div className="gen-form">
-                                      <div className="row">
-                                        <div className="col-md-6">
-                                          <div className="row">
-                                            <div className="col-md-6">
-                                              <h3 className="fs-6 fs-bold text-dark">
-                                                Language
-                                              </h3>
-                                            </div>
-                                            <div className="col-md-6">
-                                              <select
-                                                className="form-select form-select-sm"
-                                                aria-label=".form-select-sm example"
-                                              >
-                                                <option name="language">
-                                                  gdfg
-                                                </option>
-                                                <option
-                                                  value="English"
-                                                  name="language"
-                                                >
-                                                  English
-                                                </option>
-                                                <option
-                                                  value="Hindi"
-                                                  name="language"
-                                                >
-                                                  Hindi
-                                                </option>
-                                                <option
-                                                  value="Bengali"
-                                                  name="language"
-                                                >
-                                                  Bengali
-                                                </option>
-                                                <option
-                                                  value="Marathi"
-                                                  name="language"
-                                                >
-                                                  Marathi
-                                                </option>
-                                                <option
-                                                  value="Telugu"
-                                                  name="language"
-                                                >
-                                                  Telugu
-                                                </option>
-                                                <option
-                                                  value="Tamil"
-                                                  name="language"
-                                                >
-                                                  Tamil
-                                                </option>
-                                                <option
-                                                  value="Gujarati"
-                                                  name="language"
-                                                >
-                                                  Gujarati
-                                                </option>
-                                                <option
-                                                  value="Urdu"
-                                                  name="language"
-                                                >
-                                                  Urdu
-                                                </option>
-                                                <option
-                                                  value="Kannada"
-                                                  name="language"
-                                                >
-                                                  Kannada
-                                                </option>
-                                              </select>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                          <div className="row">
-                                            <div className="col-md-6">
-                                              <h3 className="fs-6 fs-bold text-dark">
-                                                Highest Level of Education
-                                              </h3>
-                                            </div>
-                                            <div className="col-md-6">
-                                              <select
-                                                className="form-select form-select-sm"
-                                                aria-label=".form-select-sm example"
-                                              >
-                                                <option name="education">
-                                                  xfgfg
-                                                </option>
-                                                <option
-                                                  value="Grade School"
-                                                  name="education"
-                                                >
-                                                  Grade School
-                                                </option>
-                                                <option
-                                                  value="Technical School"
-                                                  name="education"
-                                                >
-                                                  Technical School
-                                                </option>
-                                                <option
-                                                  value="Some College"
-                                                  name="education"
-                                                >
-                                                  Some College
-                                                </option>
-                                                <option
-                                                  value="Master's Degree"
-                                                  name="education"
-                                                >
-                                                  Master&apos;s Degree
-                                                </option>
-                                                <option
-                                                  value="High School"
-                                                  name="education"
-                                                >
-                                                  High School
-                                                </option>
-                                                <option
-                                                  value="Trade School"
-                                                  name="education"
-                                                >
-                                                  Trade School
-                                                </option>
-                                                <option
-                                                  value="College Graduate"
-                                                  name="education"
-                                                >
-                                                  College Graduate
-                                                </option>
-                                              </select>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div className="gen-form">
-                                      <div className="row">
-                                        <div className="col-md-3">
-                                          <h3>Hand Foot Dominance</h3>
-                                        </div>
-                                        <div className="col-md-9">
-                                          <div className="row">
-                                            <div className="col-md-4">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="handFootDominance"
-                                                    value="N/A"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    N/A
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-4">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="handFootDominance"
-                                                    value="Left"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    Left
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-4">
-                                              <div className="row">
-                                                <div className="col-md-2">
-                                                  <input
-                                                    className="form-check-input"
-                                                    type="radio"
-                                                    name="handFootDominance"
-                                                    value="Right"
-                                                  />
-                                                </div>
-                                                <div className="col-md-10">
-                                                  <p className="space-x-4">
-                                                    Right
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div className="gen-form-soft-button mt-3">
-                                      <div className="row">
-                                        <div className="col-md-4"></div>
-                                        <div className="col-md-4"></div>
-                                        <div className="col-md-4">
-                                          <div
-                                            className="right-button"
-                                            style={{ textAlign: "right" }}
-                                          >
-                                            <button
-                                              type="submit"
-                                              className="btn btn-success"
-                                            >
-                                              Save Changes
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          <GeneralInfo
+                            patientId={data?.patient?.id}
+                            generalInformation={
+                              data?.patient?.generalInformation
+                            }
+                          />
                         </div>
                         <div
                           role="tabpanel"
@@ -2196,4 +1863,4 @@ const AppointmentId = () => {
   );
 };
 
-export default AppointmentId;
+export default subjectiveInformation;
