@@ -4784,6 +4784,44 @@ li.nav-item .dropdown-menu {
   }
 }
 
+/* Time Table */
+.time-table-output {
+  background-color: #15558d21;
+}
+@media screen and (min-width: 200px) and (max-width: 600px) {
+  .time-table-output {
+    text-align: center;
+  }
+}
+.time-table-icon button {
+  background-color: #f1151c4d;
+  color: #e84646;
+}
+
+.time-table-icon button:hover {
+  background-color: #d50000;
+  color: white;
+}
+
+button.btn-custom-time-slot {
+  background-color: #00bf6f;
+  color: #fff;
+}
+
+button.btn-custom-time-slot:hover,
+button.btn-custom-time-slot:focus,
+button.btn-custom-time-slot:active,
+button.btn-custom-time-slot:visited {
+  background-color: #016ecd;
+  color: #fff;
+}
+
+@media screen and (min-width: 200px) and (max-width: 600px) {
+  .modal-upper-con select {
+    margin-bottom: 10px;
+  }
+}
+
 /* Footer */
 
 .footer {
