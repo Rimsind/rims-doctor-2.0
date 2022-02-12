@@ -462,6 +462,26 @@ const TimeTable = () => {
                           </button>
                         </div>
                       </div>
+                      <div className="col-md-12 col-sm-12 col-lg">
+                        <div className="schd-item me-2 mb-2">
+                          <button
+                            className="btn btn-custom-time-slot rounded-1 disabled"
+                            value="9:00 AM"
+                          >
+                            9:00 AM - 9:15 AM
+                          </button>
+                        </div>
+                      </div>
+                      <div className="col-md-12 col-sm-12 col-lg">
+                        <div className="schd-item me-2 mb-2">
+                          <button
+                            className="btn btn-custom-time-slot rounded-1 disabled"
+                            value="9:00 AM"
+                          >
+                            9:00 AM - 9:15 AM
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
