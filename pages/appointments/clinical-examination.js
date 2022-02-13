@@ -10,7 +10,7 @@ import { apiUrl } from "config/api";
 import axios from "axios";
 import { useAuth } from "context";
 import Link from "next/link";
-const subjectiveInformation = () => {
+const ClinicalExamination = () => {
   const { id } = useRouter().query;
   const { auth } = useAuth();
 
@@ -636,4 +636,4 @@ const subjectiveInformation = () => {
   );
 };
 
-export default subjectiveInformation;
+export default ClinicalExamination;

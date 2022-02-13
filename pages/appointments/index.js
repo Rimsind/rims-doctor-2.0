@@ -101,7 +101,7 @@ const Index = () => {
                       </thead>
                       <tbody>
                         {data?.map((items, index) => (
-                          <tr>
+                          <tr key={index}>
                             <Appointments data={items} key={index} />
                           </tr>
                         ))}

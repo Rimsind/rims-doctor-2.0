@@ -11,7 +11,7 @@ import axios from "axios";
 import { useAuth } from "context";
 import Link from "next/link";
 import { GeneralInfo } from "components/subjectiveForm";
-const subjectiveInformation = () => {
+const SubjectiveInformation = () => {
   const { id } = useRouter().query;
   const { auth } = useAuth();
 
@@ -1863,4 +1863,4 @@ const subjectiveInformation = () => {
   );
 };
 
-export default subjectiveInformation;
+export default SubjectiveInformation;
