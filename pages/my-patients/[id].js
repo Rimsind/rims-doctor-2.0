@@ -479,24 +479,26 @@ const MyPatientId = () => {
                               Surgical History – Please List Any Surgeries You
                               Had, And If Known Include Dates:
                             </p>
-                            <table className="table">
-                              <thead className="table-info table-striped table-bordered">
-                                <tr>
-                                  <th>Title</th>
-                                  <th>Date</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>First</td>
-                                  <td>2022-01-18</td>
-                                </tr>
-                                <tr>
-                                  <td>Second</td>
-                                  <td>2022-01-14</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <div className="table-sm-responsive table-md-responsive table-lg-responsive">
+                              <table className="table">
+                                <thead className="table-info table-striped table-bordered">
+                                  <tr>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>First</td>
+                                    <td>2022-01-18</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Second</td>
+                                    <td>2022-01-14</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                           <div className="col-md-12 mt-3">
                             <div className="inner-item">
@@ -521,48 +523,50 @@ const MyPatientId = () => {
                               Medications & Allergies – Please Check Or List All
                               Medications Or Allergies:
                             </p>
-                            <table className="table">
-                              <thead className="table-info table-striped table-bordered">
-                                <tr>
-                                  <th>Medicine Name</th>
-                                  <th>Medicine Dose</th>
-                                  <th>Start Date</th>
-                                  <th>Status</th>
-                                  <th>Type</th>
-                                  <th>Route</th>
-                                  <th>Frequency</th>
-                                  <th>Any Side Effect</th>
-                                  <th>If Yes</th>
-                                  <th>Allergies</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Cipcal</td>
-                                  <td>500</td>
-                                  <td>13/01/2022</td>
-                                  <td>Continue</td>
-                                  <td>Prescribed</td>
-                                  <td>Oral</td>
-                                  <td>2 times per day</td>
-                                  <td>Yes</td>
-                                  <td>Headech</td>
-                                  <td>Rashes</td>
-                                </tr>
-                                <tr>
-                                  <td>Cipcal</td>
-                                  <td>500</td>
-                                  <td>13/01/2022</td>
-                                  <td>Continue</td>
-                                  <td>Prescribed</td>
-                                  <td>Oral</td>
-                                  <td>2 times per day</td>
-                                  <td>Yes</td>
-                                  <td>Headech</td>
-                                  <td>Rashes</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <div className=" table-responsive-lg table-responsive-md table-responsive-sm">
+                              <table className="table">
+                                <thead className="table-info table-striped table-bordered">
+                                  <tr>
+                                    <th>Medicine Name</th>
+                                    <th>Medicine Dose</th>
+                                    <th>Start Date</th>
+                                    <th>Status</th>
+                                    <th>Type</th>
+                                    <th>Route</th>
+                                    <th>Frequency</th>
+                                    <th>Any Side Effect</th>
+                                    <th>If Yes</th>
+                                    <th>Allergies</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Cipcal</td>
+                                    <td>500</td>
+                                    <td>13/01/2022</td>
+                                    <td>Continue</td>
+                                    <td>Prescribed</td>
+                                    <td>Oral</td>
+                                    <td>2 times per day</td>
+                                    <td>Yes</td>
+                                    <td>Headech</td>
+                                    <td>Rashes</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Cipcal</td>
+                                    <td>500</td>
+                                    <td>13/01/2022</td>
+                                    <td>Continue</td>
+                                    <td>Prescribed</td>
+                                    <td>Oral</td>
+                                    <td>2 times per day</td>
+                                    <td>Yes</td>
+                                    <td>Headech</td>
+                                    <td>Rashes</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -835,57 +839,61 @@ const MyPatientId = () => {
                       <div role="tabpanel" id="tab-6" className="tab-pane fade">
                         <div className="row">
                           <div className="col-md-12">
-                            <table className="table">
-                              <thead className="table-info table-striped table-bordered">
-                                <tr>
-                                  <th>Relation</th>
-                                  <th>Age (If Living)</th>
-                                  <th>Age (If Death)</th>
-                                  <th>Cause of Death</th>
-                                  <th>Problems</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Brother</td>
-                                  <td>56</td>
-                                  <td>0</td>
-                                  <td>NA</td>
-                                  <td>High Blood Pressure</td>
-                                </tr>
-                                <tr>
-                                  <td>Brother</td>
-                                  <td>56</td>
-                                  <td>0</td>
-                                  <td>NA</td>
-                                  <td>High Blood Pressure</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <div className="table-responsive-lg table-responsive-md table-responsive-sm">
+                              <table className="table">
+                                <thead className="table-info table-striped table-bordered">
+                                  <tr>
+                                    <th>Relation</th>
+                                    <th>Age (If Living)</th>
+                                    <th>Age (If Death)</th>
+                                    <th>Cause of Death</th>
+                                    <th>Problems</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Brother</td>
+                                    <td>56</td>
+                                    <td>0</td>
+                                    <td>NA</td>
+                                    <td>High Blood Pressure</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Brother</td>
+                                    <td>56</td>
+                                    <td>0</td>
+                                    <td>NA</td>
+                                    <td>High Blood Pressure</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div role="tabpanel" id="tab-7" className="tab-pane fade">
                         <div className="row">
                           <div className="col-md-12">
-                            <table className="table">
-                              <thead className="table-info table-striped table-bordered">
-                                <tr>
-                                  <th>Title</th>
-                                  <th>Relation</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Test 1</td>
-                                  <td>View</td>
-                                </tr>
-                                <tr>
-                                  <td>Test 2</td>
-                                  <td>View</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <div className="table-responsive-lg table-responsive-md table-responsive-sm">
+                              <table className="table">
+                                <thead className="table-info table-striped table-bordered">
+                                  <tr>
+                                    <th>Title</th>
+                                    <th>Relation</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Test 1</td>
+                                    <td>View</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Test 2</td>
+                                    <td>View</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                         </div>
                       </div>
