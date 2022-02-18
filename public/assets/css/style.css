@@ -4849,6 +4849,12 @@ li.nav-item .dropdown-menu {
   }
 }
 
+@media screen and (min-width: 821px) and (max-width: 920px) {
+  li.nav-item .dropdown-menu {
+    margin-left: 2px;
+  }
+}
+
 /* Breadcrumb */
 .breadcrumb {
   margin-top: 140px;
