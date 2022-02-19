@@ -4,7 +4,7 @@ import { useAuth } from "../context";
 import { apiUrl } from "config/api";
 import { ProfilePicture, ProfileInfo } from "components/doctorComponents";
 
-const ProfileSettings = ({ doctor }) => {
+const ProfileSettings = () => {
   const { auth } = useAuth();
 
   const { data } = useSWR(

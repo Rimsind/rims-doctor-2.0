@@ -1,687 +1,184 @@
-import { Breadcrumb } from "components/common";
-import { useAuth } from "context";
-import useSWR from "swr";
-import { apiUrl } from "config/api";
+import AuthLayout from "components/layout/AuthLayout";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
 import axios from "axios";
+import { setCookie } from "nookies";
+import router from "next/router";
+import { useAuth } from "../context/index";
 
 const Index = () => {
-  const { auth } = useAuth();
-  const { data } = useSWR(
-    `${apiUrl}/doctors/${auth.user?.profileId}`,
-    async (url) => {
-      const res = await axios.get(url, {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      });
-      const result = res.data;
-      return result;
-    }
-  );
-  console.log(data);
+  const { dispatchAuth } = useAuth();
+  const { register, handleSubmit, reset } = useForm();
 
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+    dispatchAuth({ type: "AUTH_LOADING" });
+    if (!data.email || !data.password) {
+      alert("please fill all data");
+      return;
+    }
+
+    try {
+      const payload = {
+        identifier: data.email,
+        password: data.password,
+      };
+      const res = await axios.post(
+        "https://manage.riimstechnology.com/auth/local",
+        payload
+      );
+      const result = res.data;
+
+      if (result.jwt && result.user.role.id === 3) {
+        setCookie(null, "token", result.jwt, {
+          maxAge: 30 * 24 * 60 * 60,
+          path: "/",
+        });
+        setCookie(null, "user", JSON.stringify(result.user), {
+          maxAge: 30 * 24 * 60 * 60,
+          path: "/",
+        });
+
+        dispatchAuth({
+          type: "LOGIN_SUCCESS",
+          payload: { token: result.jwt, user: result.user },
+        });
+
+        reset();
+        alert("login success");
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      dispatchAuth({
+        type: "LOGIN_FAILED",
+        payload: error.message
+          ? error.message
+          : "Something went wrong, try agin",
+      });
+      console.log(error.message);
+      alert("login failed");
+    }
+  };
   return (
     <>
-      <div className="page-wrapper" id="page-wrapper">
-        <Breadcrumb title="Dashboard" />
-        <div className="content container-fluid">
-          <div className="page-header">
-            <h3 className="page-title">
-              Welcome Dr. {data?.firstName} {data?.lastName}!
-            </h3>
-          </div>
-
-          <div className="row">
-            <div className="col-xl-3 col-sm-6 col-12">
-              <div className="card">
-                <div className="card-body">
-                  <div className="dash-widget-header">
-                    <span className="dash-widget-icon text-primary border-primary">
-                      <i className="fas fa-user-md"></i>
-                    </span>
-                    <div className="dash-count">
-                      <h3>168</h3>
+      <div className="login-form-main">
+        <div className="area">
+          <ul className="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div className="container">
+          <div className="row form-box">
+            <div className="col-6 px-5 py-4">
+              <div className="login-logo mt-3">
+                <img src="/assets/img/logo-dark.png" width="70px" />
+              </div>
+              <div className="login-con mt-4">
+                <p className="fs-5 text-secondary">
+                  Welcome Back, Please login <br />
+                  to your account
+                </p>
+              </div>
+              <div className="login-btn-option mt-4 d-flex align-items-center justify-content-between">
+                <button type="button" className="btn btn-primary px-5 disabled">
+                  <i className="fab fa-facebook-f me-2"></i> Login with Facebook
+                </button>
+                <button type="button" className="btn btn-danger px-5 disabled">
+                  <i className="fab fa-google me-2"></i> Login with Google
+                </button>
+              </div>
+              <div className="text-center mt-4">
+                <p className="fs-6 fw-lighter fst-italic">-OR-</p>
+              </div>
+              <div className="login-form">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="mb-3">
+                    <label htmlFor="exampleInputEmail1" className="form-label">
+                      Email address
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      {...register("email")}
+                    />
+                    <div id="emailHelp" className="form-text">
+                      We&apos;ll never share your email with anyone else.
                     </div>
                   </div>
-                  <div className="dash-widget-info">
-                    <h6 className="text-muted">Doctors</h6>
-                    <div className="progress progress-sm">
-                      <div className="progress-bar bg-primary w-50"></div>
+                  <div className="mb-3">
+                    <label
+                      htmlFor="exampleInputPassword1"
+                      className="form-label"
+                    >
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="exampleInputPassword1"
+                      {...register("password")}
+                    />
+                  </div>
+                  <div className="mb-3 form-check">
+                    <div className="row">
+                      <div className="col-6">
+                        <input
+                          type="checkbox"
+                          className="form-check-input"
+                          id="exampleCheck1"
+                        />
+                        <label
+                          className="form-check-label"
+                          htmlFor="exampleCheck1"
+                        >
+                          Show Password
+                        </label>
+                      </div>
+                      <div className="col-6 text-end">
+                        <a
+                          href="#"
+                          className="text-dark fw-bold text-decoration-none"
+                        >
+                          Forgot Password
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <div className="row mt-5">
+                    <div className="col-12 text-center">
+                      <button type="submit" className="btn btn-custom-login">
+                        Login
+                      </button>
+                      <p className="mt-2">
+                        Don&apos;t have an account?
+                        <Link href="/signup">
+                          <a className="text-dark fw-bold">Register </a>
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="warning-text">
+                    <p className="fs-6 fw-lighter mt-2">
+                      By signing up, you agree to Rims&apos;s
+                      <a href="#">Terms & Condition</a> &
+                      <a href="#">Privacy Policy</a>
+                    </p>
+                  </div>
+                </form>
               </div>
             </div>
-            <div className="col-xl-3 col-sm-6 col-12">
-              <div className="card">
-                <div className="card-body">
-                  <div className="dash-widget-header">
-                    <span className="dash-widget-icon text-success">
-                      <i className="fas fa-user-injured"></i>
-                    </span>
-                    <div className="dash-count">
-                      <h3>487</h3>
-                    </div>
-                  </div>
-                  <div className="dash-widget-info">
-                    <h6 className="text-muted">Patients</h6>
-                    <div className="progress progress-sm">
-                      <div className="progress-bar bg-success w-50"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-sm-6 col-12">
-              <div className="card">
-                <div className="card-body">
-                  <div className="dash-widget-header">
-                    <span className="dash-widget-icon text-danger border-danger">
-                      <i className="far fa-calendar-check"></i>
-                    </span>
-                    <div className="dash-count">
-                      <h3>485</h3>
-                    </div>
-                  </div>
-                  <div className="dash-widget-info">
-                    <h6 className="text-muted">Appointment</h6>
-                    <div className="progress progress-sm">
-                      <div className="progress-bar bg-danger w-50"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-sm-6 col-12">
-              <div className="card">
-                <div className="card-body">
-                  <div className="dash-widget-header">
-                    <span className="dash-widget-icon text-warning border-warning">
-                      <i className="fas fa-rupee-sign"></i>
-                    </span>
-                    <div className="dash-count">
-                      <h3>₹62523</h3>
-                    </div>
-                  </div>
-                  <div className="dash-widget-info">
-                    <h6 className="text-muted">Revenue</h6>
-                    <div className="progress progress-sm">
-                      <div className="progress-bar bg-warning w-50"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 d-flex">
-              <div className="card card-table flex-fill">
-                <div className="card-header">
-                  <h4 className="card-title">Doctors List</h4>
-                </div>
-                <div className="card-body">
-                  <div className="table-responsive">
-                    <table className="table table-hover table-center mb-0">
-                      <thead>
-                        <tr>
-                          <th>Doctor Name</th>
-                          <th>Speciality</th>
-                          <th>Earned</th>
-                          <th>Reviews</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-01.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Ruby Perrin</a>
-                            </h2>
-                          </td>
-                          <td>Dental</td>
-                          <td>$3200.00</td>
-                          <td>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star-o text-secondary"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-02.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Darren Elder</a>
-                            </h2>
-                          </td>
-                          <td>Dental</td>
-                          <td>$3100.00</td>
-                          <td>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star-o text-secondary"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-03.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Deborah Angel</a>
-                            </h2>
-                          </td>
-                          <td>Cardiology</td>
-                          <td>$4000.00</td>
-                          <td>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star-o text-secondary"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-04.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Sofia Brient</a>
-                            </h2>
-                          </td>
-                          <td>Urology</td>
-                          <td>$3200.00</td>
-                          <td>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star-o text-secondary"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-05.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Marvin Campbell</a>
-                            </h2>
-                          </td>
-                          <td>Orthopaedics</td>
-                          <td>$3500.00</td>
-                          <td>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star text-warning"></i>
-                            <i className="fe fe-star-o text-secondary"></i>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 d-flex">
-              <div className="card card-table flex-fill">
-                <div className="card-header">
-                  <h4 className="card-title">Patients List</h4>
-                </div>
-                <div className="card-body">
-                  <div className="table-responsive">
-                    <table className="table table-hover table-center mb-0">
-                      <thead>
-                        <tr>
-                          <th>Patient Name</th>
-                          <th>Phone</th>
-                          <th>Last Visit</th>
-                          <th>Paid</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient1.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Charlene Reed </a>
-                            </h2>
-                          </td>
-                          <td>8286329170</td>
-                          <td>20 Oct 2019</td>
-                          <td className="text-end">$100.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient2.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Travis Trimble </a>
-                            </h2>
-                          </td>
-                          <td>2077299974</td>
-                          <td>22 Oct 2019</td>
-                          <td className="text-end">$200.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient3.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Carl Kelly</a>
-                            </h2>
-                          </td>
-                          <td>2607247769</td>
-                          <td>21 Oct 2019</td>
-                          <td className="text-end">$250.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient4.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html"> Michelle Fairfax</a>
-                            </h2>
-                          </td>
-                          <td>5043686874</td>
-                          <td>21 Sep 2019</td>
-                          <td className="text-end">$150.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient5.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Gina Moore</a>
-                            </h2>
-                          </td>
-                          <td>9548207887</td>
-                          <td>18 Sep 2019</td>
-                          <td className="text-end">$350.00</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="card card-table">
-                <div className="card-header">
-                  <h4 className="card-title">Appointment List</h4>
-                </div>
-                <div className="card-body">
-                  <div className="table-responsive">
-                    <table className="table table-hover table-center mb-0">
-                      <thead>
-                        <tr>
-                          <th>Doctor Name</th>
-                          <th>Speciality</th>
-                          <th>Patient Name</th>
-                          <th>Apointment Time</th>
-                          <th>Status</th>
-                          <th className="text-end">Amount</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-01.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Ruby Perrin</a>
-                            </h2>
-                          </td>
-                          <td>Dental</td>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient1.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Charlene Reed </a>
-                            </h2>
-                          </td>
-                          <td>
-                            9 Nov 2019
-                            <span className="text-primary d-block">
-                              11.00 AM - 11.15 AM
-                            </span>
-                          </td>
-                          <td>
-                            <div className="status-toggle">
-                              <input
-                                type="checkbox"
-                                id="status_1"
-                                className="check"
-                                checked
-                              />
-                              <label htmlFor="status_1" className="checktoggle">
-                                checkbox
-                              </label>
-                            </div>
-                          </td>
-                          <td className="text-end">$200.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-02.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Darren Elder</a>
-                            </h2>
-                          </td>
-                          <td>Dental</td>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient2.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Travis Trimble </a>
-                            </h2>
-                          </td>
-                          <td>
-                            5 Nov 2019
-                            <span className="text-primary d-block">
-                              11.00 AM - 11.35 AM
-                            </span>
-                          </td>
-                          <td>
-                            <div className="status-toggle">
-                              <input
-                                type="checkbox"
-                                id="status_2"
-                                className="check"
-                                checked
-                              />
-                              <label htmlFor="status_2" className="checktoggle">
-                                checkbox
-                              </label>
-                            </div>
-                          </td>
-                          <td className="text-end">$300.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-03.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Deborah Angel</a>
-                            </h2>
-                          </td>
-                          <td>Cardiology</td>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient3.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Carl Kelly</a>
-                            </h2>
-                          </td>
-                          <td>
-                            11 Nov 2019
-                            <span className="text-primary d-block">
-                              12.00 PM - 12.15 PM
-                            </span>
-                          </td>
-                          <td>
-                            <div className="status-toggle">
-                              <input
-                                type="checkbox"
-                                id="status_3"
-                                className="check"
-                                checked
-                              />
-                              <label htmlFor="status_3" className="checktoggle">
-                                checkbox
-                              </label>
-                            </div>
-                          </td>
-                          <td className="text-end">$150.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-04.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Sofia Brient</a>
-                            </h2>
-                          </td>
-                          <td>Urology</td>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient4.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html"> Michelle Fairfax</a>
-                            </h2>
-                          </td>
-                          <td>
-                            7 Nov 2019
-                            <span className="text-primary d-block">
-                              1.00 PM - 1.20 PM
-                            </span>
-                          </td>
-                          <td>
-                            <div className="status-toggle">
-                              <input
-                                type="checkbox"
-                                id="status_4"
-                                className="check"
-                                checked
-                              />
-                              <label htmlFor="status_4" className="checktoggle">
-                                checkbox
-                              </label>
-                            </div>
-                          </td>
-                          <td className="text-end">$150.00</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/doctors/doctor-thumb-05.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Dr. Marvin Campbell</a>
-                            </h2>
-                          </td>
-                          <td>Orthopaedics</td>
-                          <td>
-                            <h2 className="table-avatar">
-                              <a
-                                href="profile.html"
-                                className="avatar avatar-sm me-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="/assets/img/patients/patient5.jpg"
-                                  alt="User Image"
-                                />
-                              </a>
-                              <a href="profile.html">Gina Moore</a>
-                            </h2>
-                          </td>
-                          <td>
-                            15 Nov 2019
-                            <span className="text-primary d-block">
-                              1.00 PM - 1.15 PM
-                            </span>
-                          </td>
-                          <td>
-                            <div className="status-toggle">
-                              <input
-                                type="checkbox"
-                                id="status_5"
-                                className="check"
-                                checked
-                              />
-                              <label htmlFor="status_5" className="checktoggle">
-                                checkbox
-                              </label>
-                            </div>
-                          </td>
-                          <td className="text-end">$200.00</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="col-6 bg-background1"></div>
           </div>
         </div>
       </div>
@@ -690,3 +187,5 @@ const Index = () => {
 };
 
 export default Index;
+
+Index.getLayout = (Index) => <AuthLayout>{Index}</AuthLayout>;

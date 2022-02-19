@@ -9,7 +9,12 @@ import GlobalProvider from "context";
 
 export default function MyApp({ Component, pageProps }) {
   const getLayout =
-    Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
+    Component.getLayout ||
+    ((page) => (
+      <GlobalProvider>
+        <MainLayout>{page}</MainLayout>
+      </GlobalProvider>
+    ));
 
   return getLayout(
     <GlobalProvider>

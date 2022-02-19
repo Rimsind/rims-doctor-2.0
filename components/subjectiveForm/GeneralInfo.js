@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const GeneralInfo = ({ generalInformation, patientId }) => {
-  console.log(generalInformation);
   const { auth } = useAuth();
   const { register, handleSubmit } = useForm();
   const updateGeneralInformation = async (data, event) => {
@@ -35,7 +34,7 @@ const GeneralInfo = ({ generalInformation, patientId }) => {
   };
   return (
     <>
-      <div className="general-information-form relative p-6 flex-auto container">
+      <div className="general-information-form  ">
         <div className="max-w-6xl mx-auto md:py-10">
           <div className="space-y-5 border-2 p-10 rounded">
             <div className="space-y-2 pb-5">

@@ -13,7 +13,6 @@ import Link from "next/link";
 const ClinicalExamination = () => {
   const { id } = useRouter().query;
   const { auth } = useAuth();
-
   const { data } = useSWR(`${apiUrl}/appointments/${id}`, async (url) => {
     const res = await axios.get(url, {
       headers: {
@@ -23,6 +22,7 @@ const ClinicalExamination = () => {
     const result = res.data;
     return result;
   });
+
   return (
     <>
       <div className="page-wrapper" id="page-wrapper">
