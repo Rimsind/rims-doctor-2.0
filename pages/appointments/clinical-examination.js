@@ -10,6 +10,11 @@ import { apiUrl } from "config/api";
 import axios from "axios";
 import { useAuth } from "context";
 import Link from "next/link";
+import {
+  Assesment,
+  EPrescription,
+  HistoryOfPresentIllness,
+} from "components/commonForm";
 const ClinicalExamination = () => {
   const { id } = useRouter().query;
   const { auth } = useAuth();
@@ -58,7 +63,7 @@ const ClinicalExamination = () => {
               <div className="card">
                 <div className="card-header">
                   <div className="custom-tab row align-items-center">
-                    <div className="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div className="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6 appt-tab-btn">
                       <div
                         className="tablinks diag-inner-content bg-primary pt-4 pb-1 text-center "
                         id="defaultOpen"
@@ -72,7 +77,7 @@ const ClinicalExamination = () => {
                         </Link>
                       </div>
                     </div>
-                    <div className="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div className="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6 appt-tab-btn">
                       <div className="tablinks diag-inner-content bg-primary pt-4 pb-1 text-center active">
                         <p className="fs-5 fw-bold text-light">
                           Clinical Assesment
@@ -135,7 +140,8 @@ const ClinicalExamination = () => {
                               id="tab-11"
                               className="tab-pane fade show active"
                             >
-                              <div className="row">
+                              <HistoryOfPresentIllness />
+                              {/* <div className="row">
                                 <div className="col-md-6">
                                   <div className="inner-item d-flex align-items-center justify-content-between">
                                     <div className="item">
@@ -182,7 +188,7 @@ const ClinicalExamination = () => {
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </div> */}
                             </div>
                             <div
                               role="tabpanel"
@@ -379,7 +385,8 @@ const ClinicalExamination = () => {
                               id="tab-13"
                               className="tab-pane fade"
                             >
-                              <div className="row">
+                              <Assesment />
+                              {/* <div className="row">
                                 <div className="col-md-6">
                                   <div className="inner-item d-flex align-items-center justify-content-between">
                                     <div className="item">
@@ -420,14 +427,15 @@ const ClinicalExamination = () => {
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </div> */}
                             </div>
                             <div
                               role="tabpanel"
                               id="tab-14"
                               className="tab-pane fade"
                             >
-                              <div className="row">
+                              <EPrescription />
+                              {/* <div className="row">
                                 <div className="col-md-12">
                                   <div className="inner-item">
                                     <div className="item">
@@ -619,7 +627,7 @@ const ClinicalExamination = () => {
                                     </tbody>
                                   </table>
                                 </div>
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                         </div>
