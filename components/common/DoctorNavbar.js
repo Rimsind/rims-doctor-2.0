@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Topbar from "./Topbar";
+import Image from "next/image";
 
-const DoctorNavbar = () => {
+const DoctorNavbar = ({ data }) => {
   return (
     <>
       <div className="header">
@@ -9,7 +10,11 @@ const DoctorNavbar = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              <img src="/assets/img/logo-dark.png" width="80px" />
+              <Image
+                src="/assets/img/logo-dark.png"
+                width="80px"
+                height="60px"
+              />
             </a>
             <button
               className="navbar-toggler"
@@ -25,7 +30,7 @@ const DoctorNavbar = () => {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav mx-auto">
                 <li className="nav-item current active">
-                  <Link href="/">
+                  <Link href="/dashboard">
                     <a className="nav-link">
                       <i className="fas fa-tachometer-alt me-1 "></i>
                       <span>Dashboard</span>
@@ -73,25 +78,33 @@ const DoctorNavbar = () => {
                     data-bs-toggle="dropdown"
                   >
                     <span className="user-img">
-                      <img
+                      <Image
                         className="rounded-circle"
-                        src="/assets/img/profiles/avatar-01.jpg"
-                        alt="Ryan Taylor"
+                        src={data?.image?.url || "/assets/img/profile.png"}
+                        alt="profile Image"
+                        height="50"
+                        width="50"
                       />
                     </span>
                   </a>
                   <div className="dropdown-menu">
                     <div className="user-header">
                       <div className="avatar avatar-sm">
-                        <img
-                          src="/assets/img/profiles/avatar-01.jpg"
-                          alt="User Image"
+                        <Image
+                          src={data?.image?.url || "/assets/img/profile.png"}
+                          alt="profile Image"
                           className="avatar-img rounded-circle"
+                          height="40"
+                          width="40"
                         />
                       </div>
                       <div className="user-text">
-                        <h6>Dr. Samir</h6>
-                        <p className="text-muted mb-0">Medicine Specialist</p>
+                        <h6>
+                          Dr. {data?.firstName} {data?.lastName}
+                        </h6>
+                        <p className="text-muted mb-0">
+                          {data?.specialty?.name}
+                        </p>
                       </div>
                     </div>
                     <a

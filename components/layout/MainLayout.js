@@ -4,28 +4,30 @@ import { DoctorNavbar, Footer } from "components/common";
 import { useAuth } from "context";
 import useSWR from "swr";
 import { apiUrl } from "config/api";
-import { parseCookies } from "nookies";
-import { useEffect, useState } from "react";
+// import { parseCookies } from "nookies";
+// import { useEffect, useState } from "react";
 
 const MainLayout = ({ children }) => {
-  const [token, setToken] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
+  const { auth } = useAuth();
 
-  useEffect(() => {
-    const { token, user } = parseCookies();
-    if (token && user) {
-      setToken(token);
-      const userData = JSON.parse(user);
-      setCurrentUser(userData);
-    }
-  }, []);
+  // const [token, setToken] = useState(null);
+  // const [currentUser, setCurrentUser] = useState(null);
 
-  const { data, loading, error } = useSWR(
-    `${apiUrl}/doctors/${currentUser?.profileId}`,
+  // useEffect(() => {
+  //   const { token, user } = parseCookies();
+  //   if (token && user) {
+  //     setToken(token);
+  //     const userData = JSON.parse(user);
+  //     setCurrentUser(userData);
+  //   }
+  // }, []);
+
+  const { data } = useSWR(
+    `${apiUrl}/doctors/${auth?.user?.profileId}`,
     async (url) => {
       const res = await axios.get(url, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${auth?.token}`,
         },
       });
       const result = res.data;
@@ -33,13 +35,6 @@ const MainLayout = ({ children }) => {
     }
   );
 
-  if (!data) {
-    return (
-      <div>
-        <h2>loading...</h2>
-      </div>
-    );
-  }
   return (
     <>
       <Head>
@@ -55,7 +50,7 @@ const MainLayout = ({ children }) => {
       ></Script>
       <Script src="/assets/js/mediasliding.min.js"></Script>
       <div className="main-wrapper" id="main-wrapper">
-        <DoctorNavbar />
+        <DoctorNavbar data={data} />
         <main>{children}</main>
         <Footer />
       </div>
