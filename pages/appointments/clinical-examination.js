@@ -12,6 +12,7 @@ import { useAuth } from "context";
 import Link from "next/link";
 import {
   Assesment,
+  ClinicalAssessment,
   EPrescription,
   HistoryOfPresentIllness,
 } from "components/commonForm";
@@ -195,7 +196,9 @@ const ClinicalExamination = () => {
                               id="tab-12"
                               className="tab-pane fade"
                             >
-                              <div className="row">
+                              <ClinicalAssessment />
+
+                              {/* <div className="row">
                                 <div className="col-md-12">
                                   <div className="inner-item d-flex align-items-center justify-content-between">
                                     <div className="item">
@@ -378,7 +381,7 @@ const ClinicalExamination = () => {
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </div> */}
                             </div>
                             <div
                               role="tabpanel"

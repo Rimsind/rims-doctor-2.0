@@ -42,7 +42,7 @@ const GeneralInfo = ({ generalInformation, patientId }) => {
                 <div className="gen-form">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>Race / Ethnicity</h3>
+                      <p className="fs-5 fw-bold">Race / Ethnicity</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -183,17 +183,17 @@ const GeneralInfo = ({ generalInformation, patientId }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form">
+                <div className="gen-form mb-3">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="row">
                         <div className="col-md-6">
-                          <h3 className="fs-6 fs-bold text-dark">Language</h3>
+                          <p className="fs-5 fw-bold">Language</p>
                         </div>
                         <div className="col-md-6">
                           <select
-                            className="form-select form-select-sm"
-                            aria-label=".form-select-sm example"
+                            className="form-select"
+                            aria-label="default select example"
                             {...register("language")}
                           >
                             <option
@@ -242,14 +242,14 @@ const GeneralInfo = ({ generalInformation, patientId }) => {
                     <div className="col-md-6">
                       <div className="row">
                         <div className="col-md-6">
-                          <h3 className="fs-6 fs-bold text-dark">
+                          <p className="fs-5 fw-bold">
                             Highest Level of Education
-                          </h3>
+                          </p>
                         </div>
                         <div className="col-md-6">
                           <select
-                            className="form-select form-select-sm"
-                            aria-label=".form-select-sm example"
+                            className="form-select"
+                            aria-label="default select example"
                             {...register("education")}
                           >
                             <option
@@ -296,7 +296,7 @@ const GeneralInfo = ({ generalInformation, patientId }) => {
                 <div className="gen-form">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>Hand Foot Dominance</h3>
+                      <p className="fs-5 fw-bold">Hand Foot Dominance</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -373,21 +373,10 @@ const GeneralInfo = ({ generalInformation, patientId }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form-soft-button mt-3">
-                  <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                      <div
-                        className="right-button"
-                        style={{ textAlign: "right" }}
-                      >
-                        <button type="submit" className="btn btn-success">
-                          Save Changes
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="gen-form-soft-button mt-3 text-end">
+                  <button type="submit" className="btn btn-success">
+                    Save Changes
+                  </button>
                 </div>
               </form>
             </div>

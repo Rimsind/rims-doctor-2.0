@@ -7,194 +7,95 @@ const HistoryOfPresentIllness = () => {
   const { appointmentId } = useRouter().query;
   const { auth } = useAuth();
 
-  const [slautation, setSalutation] = useState();
-  const [cameTo, setCameTo] = useState();
-  const [problem, setProblem] = useState();
-  const [stated, setStated] = useState();
-  const [hasDone, setHasDone] = useState();
-  const [medication, setMedication] = useState();
-  const [other, setOther] = useState();
-
-  const { data } = useSWR(
-    `${apiUrl}/appointments/${appointmentId}`,
-    async (url) => {
-      const res = await axios.get(url, {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      });
-      const result = res.data;
-      return result;
-    }
-  );
-  // const { patient } = data;
-  // console.log(patient);
-
   return (
     <>
-      <div className="general-information-form relative p-6 flex-auto">
-        <div className="gen-form">
-          <div className="history-of-present-illness-content">
-            <div className="row align-items-center">
-              <div className="col-md-2">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault2"
-                  value="Mr"
-                  onChange={(e) => setSalutation(e.target.value)}
-                />
-                Mr. /
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault2"
-                  value="Mrs"
-                  onChange={(e) => setSalutation(e.target.value)}
-                />
-                Mrs.
-              </div>
-              <div className="col-md-7">
-                {data?.patient?.first_name} {data?.patient?.last_name} is a{" "}
-                {data?.patient?.dob} Year Old {data?.patient?.gender}
-              </div>
+      <div className="general-information-form">
+        <div className="gen-form border-bottom">
+          <div className="row align-items-center mb-2">
+            <div className="col-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <p className="fs-6">
+                <span className="fw-bold">Mr. Sujata Barman</span> is a
+                <span className="fw-bold"> 20</span> year old Male
+              </p>
             </div>
-            <div className="row align-items-center mt-2">
-              <div className="col-md-5">
-                <div className="row align-items-center">
-                  <div className="col-md-4">came to the</div>
-                  <div className="col-md-8">
-                    <input
-                      type="text"
-                      className="form-control"
-                      onChange={(e) => setCameTo(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-7">
-                <div className="row align-items-center">
-                  <div className="col-md-4">with a problem of</div>
-                  <div className="col-md-8">
-                    <input
-                      type="text"
-                      className="form-control"
-                      onChange={(e) => setProblem(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="col-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
+              <p className="fs-6">came to the</p>
             </div>
-
-            <div className="row align-items-center mt-2">
-              <div className="col-md-6">
-                <div className="row align-items-center">
-                  <div className="col-md-3">Patient stated</div>
-                  <div className="col-md-9">
-                    <input
-                      type="text"
-                      className="form-control"
-                      onChange={(e) => setStated(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="row align-items-center">
-                  <div className="col-md-4">Patient was done</div>
-                  <div className="col-md-8">
-                    <input
-                      type="text"
-                      className="form-control"
-                      onChange={(e) => setHasDone(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="hospital"
+              />
             </div>
-            <div className="row align-items-center mt-2">
-              <div className="col-md-12">
-                <div className="row align-items-center">
-                  <div className="col-md-3">Patient current medication</div>
-                  <div className="col-md-9">
-                    <input
-                      type="text"
-                      className="form-control"
-                      onChange={(e) => setMedication(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="col-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <p className="fs-6">with a problem of</p>
             </div>
-            <div className="row align-items-center mt-2">
-              <div className="col-md-12">
-                <div className="row align-items-center">
-                  <div className="col-md-3">Other relevant factors are</div>
-                  <div className="col-md-9">
-                    <input
-                      type="text"
-                      className="form-control"
-                      onChange={(e) => setOther(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="col-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <input type="text" className="form-control" placeholder="" />
+            </div>
+          </div>
+          <div className="row align-items-center mb-2">
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <p className="fs-6">Patient stated</p>
+            </div>
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <input type="text" className="form-control" placeholder="" />
+            </div>
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <p className="fs-6">Patient was done</p>
+            </div>
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <input type="text" className="form-control" placeholder="" />
+            </div>
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <p className="fs-6">Patient current medication</p>
+            </div>
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <input type="text" className="form-control" placeholder="" />
+            </div>
+          </div>
+          <div className="row align-items-center mb-2">
+            <div className="col-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+              <p className="fs-6">Other relevant factors are</p>
+            </div>
+            <div className="col-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+              <input type="text" className="form-control" placeholder="" />
             </div>
           </div>
         </div>
-        <div className="gen-form-para gen-form">
-          <h3>Preview:</h3>
-
-          <p>
-            <strong>{slautation}</strong>.{" "}
-            <strong>
-              {data?.patient?.first_name} {data?.patient?.last_name}
-            </strong>{" "}
-            is a<strong> {data?.patient?.dob}</strong> y.o{" "}
-            <strong>{data?.patient?.gender}</strong> came to the
-            <strong> {cameTo} </strong>
-            with a problem of
-            <strong> {problem}</strong>. Patient stated
-            <strong> {stated}</strong>. Patient was done
-            <strong> {hasDone}</strong>. Patient current medication includes{" "}
-            <strong>{medication}</strong>. Other relevant factors are{" "}
-            <strong> {other}</strong>.
+        <div className="gen-form border-bottom mt-2 mb-2">
+          <p className="fs-5 fw-bold">Preview:</p>
+          <p className="fs-6">
+            <span className="fw-bold">Mr. Sujata Barman</span> is a
+            <span className="fw-bold"> 20</span> years of old
+            <span className="fw-bold"> Male</span> came to the with a problem
+            of. Patient stated. Patient was done. Patient current medication
+            includes. Other relevant factors are.
           </p>
         </div>
-
-        <div className="gen-form">
+        <div className="gen-form border-bottom mb-2">
           <div className="row align-items-center">
-            <div className="col-md-4">
-              <h6>Allergies</h6>
+            <div className="col-3">
+              <p className="fs-5 fw-bold">Allergies:</p>
             </div>
-            <div className="col-md-8">
-              <input type="text" className="form-control" placeholder="" />
+            <div className="col-9">
+              <p>Hello World</p>
             </div>
           </div>
         </div>
-        <div className="gen-form">
+        <div className="gen-form border-bottom mb-2">
           <div className="row align-items-center">
-            <div className="col-md-4">
-              <h6>Vaccination</h6>
+            <div className="col-3">
+              <p className="fs-5 fw-bold">Vaccination:</p>
             </div>
-            <div className="col-md-8">
-              <input type="text" className="form-control" placeholder="" />
+            <div className="col-9">
+              <p>Hello World</p>
             </div>
           </div>
         </div>
-        <div className="gen-form-btn">
-          <div className="row">
-            <div className="col-md-4"></div>
-
-            <div className="col-md-4">
-              <a href="#" className="btn btn-success">
-                Save Changes
-              </a>
-            </div>
-            <div className="col-md-4"></div>
-          </div>
+        <div className="genform-save-btn text-end">
+          <button className="btn btn-success">Save Changes</button>
         </div>
       </div>
     </>

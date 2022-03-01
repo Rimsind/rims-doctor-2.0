@@ -163,33 +163,14 @@ const FamilyHistory = ({ familyHistory, patientId }) => {
                     ))}
                   </div>
 
-                  <div className="gen-form-soft-button">
-                    <div className="row">
-                      <div className="col-md-4"></div>
-                      <div className="col-md-4"></div>
-                      <div className="col-md-4">
-                        <div
-                          className="right-button"
-                          style={{ textAlign: "right" }}
-                        >
-                          <button type="submit" className="btn btn-success">
-                            Save Changes
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="gen-form-soft-button text-end">
+                    <button type="submit" className="btn btn-success">
+                      Save Changes
+                    </button>
                   </div>
                 </div>
               </form>
-              <div
-                className="rfa-gen-form-data-table"
-                style={{
-                  background: "white",
-                  padding: "10px",
-                  borderRadius: "3px",
-                  marginTop: "10px",
-                }}
-              >
+              <div className="rfa-gen-form-data-table">
                 <table className="table table-striped">
                   <thead>
                     <tr>

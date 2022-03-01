@@ -73,7 +73,7 @@ const EmploymentStatus = ({ employmentStatus, patientId }) => {
                 <div className="gen-form">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>Work Status</h3>
+                      <p className="fs-5 fw-bold">Work Status</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -236,10 +236,10 @@ const EmploymentStatus = ({ employmentStatus, patientId }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form">
+                <div className="gen-form mb-3">
                   <div className="row justify-content-between align-items-center">
                     <div className="col-md-3">
-                      <h3>Occupation?</h3>
+                      <p className="fs-5 fw-bold">Occupation?</p>
                     </div>
                     <div className="col-md-9">
                       <input
@@ -260,7 +260,9 @@ const EmploymentStatus = ({ employmentStatus, patientId }) => {
                 <div className="gen-form">
                   <div className="row ">
                     <div className="col-md-3">
-                      <h3>Your Work Involves (Check all that apply)</h3>
+                      <p className="fs-5 fw-bold">
+                        Your Work Involves (Check all that apply)
+                      </p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -293,21 +295,10 @@ const EmploymentStatus = ({ employmentStatus, patientId }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form-soft-button mt-3">
-                  <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                      <div
-                        className="right-button"
-                        style={{ textAlign: "right" }}
-                      >
-                        <button type="submit" className="btn btn-success">
-                          Save Changes
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="gen-form-soft-button mt-3 text-end">
+                  <button type="submit" className="btn btn-success">
+                    Save Changes
+                  </button>
                 </div>
               </form>
             </div>

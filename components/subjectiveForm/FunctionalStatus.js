@@ -66,11 +66,11 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
               <form onSubmit={handleSubmit(updateFunctionalStatus)}>
                 <div className="gen-form mb-3">
                   <div className="row justify-content-between align-items-start">
-                    <h3 className="fs-5 fs-bold text-dark mb-3">
+                    <p className="fs-5 fw-bold mb-3">
                       Any Difficulty With Current Functional Mobility
-                    </h3>
+                    </p>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Bed Mobility</h3>
+                      <p className="fs-6">Bed Mobility</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -102,10 +102,10 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">
+                      <p className="fs-6">
                         Transfers (such as bed to chair, from bed to commode /
                         toilet)
-                      </h3>
+                      </p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -140,11 +140,11 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                 </div>
                 <div className="gen-form mb-3">
                   <div className="row justify-content-between align-items-start">
-                    <h3 className="fs-5 fs-bold text-dark mb-3">
+                    <p className="fs-5 fw-bold mb-3">
                       Any Difficulty with Walking / movement such as
-                    </h3>
+                    </p>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">On Ramps</h3>
+                      <p className="fs-6">On Ramps</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -176,7 +176,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Gai (Walking)</h3>
+                      <p className="fs-6">Gai (Walking)</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -208,9 +208,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">
-                        On Level Surfaces
-                      </h3>
+                      <p className="fs-6">On Level Surfaces</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -242,7 +240,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">On Stairs</h3>
+                      <p className="fs-6">On Stairs</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -274,9 +272,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">
-                        On Uneven Surfaces
-                      </h3>
+                      <p className="fs-6">On Uneven Surfaces</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -311,11 +307,11 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                 </div>
                 <div className="gen-form mb-3">
                   <div className="row justify-content-between align-items-start">
-                    <h3 className="fs-5 fs-bold text-dark mb-3">
+                    <p className="fs-5 fw-bold mb-3">
                       Any Difficulty With Self-Care Activities Such As
-                    </h3>
+                    </p>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Bathing</h3>
+                      <p className="fs-6">Bathing</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -347,7 +343,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Dressing</h3>
+                      <p className="fs-6">Dressing</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -379,7 +375,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Toileting</h3>
+                      <p className="fs-6">Toileting</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -414,13 +410,11 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                 </div>
                 <div className="gen-form mb-3">
                   <div className="row justify-content-between align-items-start">
-                    <h3 className="fs-5 fs-bold text-dark mb-3">
+                    <p className="fs-5 fw-bold mb-3">
                       Any Difficulty With Home Management Such As
-                    </h3>
+                    </p>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">
-                        Household Chores
-                      </h3>
+                      <p className="fs-6">Household Chores</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -452,7 +446,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Shopping</h3>
+                      <p className="fs-6">Shopping</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -484,9 +478,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">
-                        Driving / Transporting
-                      </h3>
+                      <p className="fs-6">Driving / Transporting</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -518,9 +510,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">
-                        Care Of Dependents
-                      </h3>
+                      <p className="fs-6">Care Of Dependents</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -555,11 +545,11 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                 </div>
                 <div className="gen-form mb-3">
                   <div className="row justify-content-between align-items-start">
-                    <h3 className="fs-5 fs-bold text-dark mb-3">
+                    <p className="fs-5 fw-bold mb-3">
                       Any Difficulty With Community And Work Activities Such As
-                    </h3>
+                    </p>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Work</h3>
+                      <p className="fs-6">Work</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -591,7 +581,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">School</h3>
+                      <p className="fs-6">School</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -623,7 +613,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Recreation</h3>
+                      <p className="fs-6">Recreation</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -655,7 +645,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Sport</h3>
+                      <p className="fs-6">Sport</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -687,7 +677,7 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                       </div>
                     </div>
                     <div className="col-md-5">
-                      <h3 className="fs-6 fs-bold text-dark">Play Activity</h3>
+                      <p className="fs-6">Play Activity</p>
                     </div>
                     <div className="col-md-7">
                       <div className="row">
@@ -720,21 +710,10 @@ const FunctionalStatus = ({ patientId, functionalStatus }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form-soft-button mt-3">
-                  <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                      <div
-                        className="right-button"
-                        style={{ textAlign: "right" }}
-                      >
-                        <button type="submit" className="btn btn-success">
-                          Save Changes
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="gen-form-soft-button mt-3 text-end">
+                  <button type="submit" className="btn btn-success">
+                    Save Changes
+                  </button>
                 </div>
               </form>
             </div>

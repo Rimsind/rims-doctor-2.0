@@ -112,10 +112,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
           <div className="space-y-5 border-2 p-10 rounded">
             <div className="space-y-2 pb-5">
               <form onSubmit={handleSubmit(updateSocialHistory)}>
-                <div className="gen-form">
+                <div className="gen-form mb-3">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>Where do you live?</h3>
+                      <p className="fs-5 fw-bold">Where do you live?</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -148,10 +148,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form">
+                <div className="gen-form mb-3">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>With whom do you live?</h3>
+                      <p className="fs-5 fw-bold">With whom do you live?</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -184,10 +184,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form">
+                <div className="gen-form mb-3">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>Does your home have?</h3>
+                      <p className="fs-5 fw-bold">Does your home have?</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -241,10 +241,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form">
+                <div className="gen-form mb-3">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>How Many Steps?</h3>
+                      <p className="fs-5 fw-bold">How Many Steps?</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -297,10 +297,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form">
+                <div className="gen-form mb-3">
                   <div className="row">
                     <div className="col-md-3">
-                      <h3>Do You Use?</h3>
+                      <p className="fs-5 fw-bold">Do You Use?</p>
                     </div>
                     <div className="col-md-9">
                       <div className="row">
@@ -357,12 +357,12 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                     </div>
                   </div>
                 </div>
-                <div className="child-gen-form-heading mt-3">
-                  <h5>Social / Health Habits</h5>
-                  <div className="gen-form">
+                <div className="child-gen-form-heading mb-3">
+                  <p className="fs-6">Social / Health Habits</p>
+                  <div className="gen-form mb-3">
                     <div className="row">
                       <div className="col-md-3">
-                        <h3>Do You Smoke Tobacco?</h3>
+                        <p className="fs-5 fw-bold">Do You Smoke Tobacco?</p>
                       </div>
                       <div className="col-md-9">
                         <div className="row">
@@ -463,10 +463,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="gen-form">
+                  <div className="gen-form mb-3">
                     <div className="row">
                       <div className="col-md-3">
-                        <h3>Do You Drink Alcohol?</h3>
+                        <p className="fs-5 fw-bold">Do You Drink Alcohol?</p>
                       </div>
                       <div className="col-md-9">
                         <div className="row">
@@ -567,10 +567,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="gen-form">
+                  <div className="gen-form mb-3">
                     <div className="row ">
                       <div className="col-md-3">
-                        <h3>Excercise?</h3>
+                        <p className="fs-5 fw-bold">Excercise?</p>
                       </div>
                       <div className="col-md-9">
                         <div className="row">
@@ -676,21 +676,10 @@ const SocialHistory = ({ patientId, socialHistory }) => {
                     </div>
                   </div>
                 </div>
-                <div className="gen-form-soft-button mt-3">
-                  <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                      <div
-                        className="right-button"
-                        style={{ textAlign: "right" }}
-                      >
-                        <button type="submit" className="btn btn-success">
-                          Save Changes
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="gen-form-soft-button mt-3 text-end">
+                  <button type="submit" className="btn btn-success">
+                    Save Changes
+                  </button>
                 </div>
               </form>
             </div>

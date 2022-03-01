@@ -234,11 +234,11 @@ const MedicalHistory = ({ medicalHistory, patientId }) => {
           <div className="space-y-5 border-2 p-10 rounded">
             <div className="space-y-2 pb-5">
               <form onSubmit={handleSubmit(updateMedicalHistory)}>
-                <div className="gen-form">
-                  <h3 className="font-bold mb-3">
+                <div className="gen-form mb-3">
+                  <p className="fs-5 fw-bold mb-3">
                     Past medical history - Please check if anyone in your family
                     has or had any or the following:
-                  </h3>
+                  </p>
                   <div className="row justify-content-between align-items-center">
                     {pastMedicalHistory.map((item, index) => (
                       <div className="col-md-3" key={index}>
@@ -271,10 +271,10 @@ const MedicalHistory = ({ medicalHistory, patientId }) => {
                     <div className="col-md-3"></div>
                   </div>
                 </div>
-                <div className="gen-form">
-                  <h3 className="font-bold">
+                <div className="gen-form mb-3">
+                  <p className="fs-5 fw-bold">
                     Past medical history - For Women Only:
-                  </h3>
+                  </p>
                   <div className="row justify-content-between align-items-center">
                     <div className="col-md-6">
                       <div className="row">
@@ -587,128 +587,123 @@ const MedicalHistory = ({ medicalHistory, patientId }) => {
                 </div>
 
                 <div className="gen-form">
-                  <h3 className="font-bold">
+                  <p className="fs-5 fw-bold">
                     Surgical History – Please list any surgeries you had, and if
                     known include dates:
-                  </h3>
-                  <div className="row mb-3">
-                    <div className="col-md-9"></div>
-                    <div className="col-md-3">
-                      <div className="text-end">
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          data-bs-toggle="modal"
-                          data-bs-target="#surgicalhistory"
-                        >
-                          Add New Entry
-                        </button>
-                      </div>
+                  </p>
+                  <div className="modal-btn text-end mb-3">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#surgicalhistory"
+                    >
+                      Add New Entry
+                    </button>
+                  </div>
 
-                      <div
-                        className="modal fade"
-                        id="surgicalhistory"
-                        tabIndex="-1"
-                        aria-labelledby="exampleModalLabel"
-                        aria-hidden="true"
-                      >
-                        <div className="modal-dialog modal-dialog-centered modal-lg">
-                          <div className="modal-content">
-                            <div className="modal-header">
-                              <h3 className="fs-6 fs-bold text-dark">
-                                Surgical History – Please list any surgeries you
-                                had, and if known include dates:
-                              </h3>
-                              <button
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                              ></button>
-                            </div>
-                            <div className="modal-body">
-                              <div className="gen-form mb-3">
-                                <div className="row justify-centent-between align-items-start mb-3">
-                                  <div className="col-md-12">
+                  <div
+                    className="modal fade"
+                    id="surgicalhistory"
+                    tabIndex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div className="modal-dialog modal-dialog-centered modal-lg">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <p className="fs-6 fs-bold text-dark">
+                            Surgical History – Please list any surgeries you
+                            had, and if known include dates:
+                          </p>
+                          <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div className="modal-body">
+                          <div className="gen-form mb-3">
+                            <div className="row justify-centent-between align-items-start mb-3">
+                              <div className="col-md-12">
+                                <div className="row">
+                                  <div className="col-md-1">Title:</div>
+                                  <div className="col-md-6">
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      name="surgery"
+                                      value={surgery}
+                                      onChange={(e) =>
+                                        setSurgery(e.target.value)
+                                      }
+                                    />
+                                  </div>
+                                  <div className="col-md-5">
                                     <div className="row">
-                                      <div className="col-md-1">Title:</div>
-                                      <div className="col-md-6">
+                                      <div className="col-md-4">Date:</div>
+                                      <div className="col-md-8">
                                         <input
-                                          type="text"
+                                          type="date"
                                           className="form-control"
-                                          name="surgery"
-                                          value={surgery}
+                                          name="surgeryDate"
+                                          value={surgeryDate}
                                           onChange={(e) =>
-                                            setSurgery(e.target.value)
+                                            setSurgeryDate(e.target.value)
                                           }
                                         />
-                                      </div>
-                                      <div className="col-md-5">
-                                        <div className="row">
-                                          <div className="col-md-4">Date:</div>
-                                          <div className="col-md-8">
-                                            <input
-                                              type="date"
-                                              className="form-control"
-                                              name="surgeryDate"
-                                              value={surgeryDate}
-                                              onChange={(e) =>
-                                                setSurgeryDate(e.target.value)
-                                              }
-                                            />
-                                          </div>
-                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div className="add_btn text-end mb-3">
-                                <span
-                                  className="btn btn-primary"
-                                  onClick={addSurgicalHistory}
-                                >
-                                  Add
-                                </span>
-                              </div>
-                              <div
-                                className="table-responsive"
-                                style={{ borderTop: "1px solid #bbbaba" }}
-                              >
-                                <table className="table">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">Title</th>
-                                      <th scope="col">Date</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    {allSurgery.map((item, index) => (
-                                      <tr key={index}>
-                                        <td>{item.name}</td>
-                                        <td>{item.date}</td>
-                                      </tr>
-                                    ))}
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                            <div className="modal-footer">
-                              <button
-                                type="button"
-                                className="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                              >
-                                Close
-                              </button>
-                              <span
-                                className="btn btn-primary"
-                                onClick={submitSurgicalHistory}
-                              >
-                                Save changes
-                              </span>
                             </div>
                           </div>
+                          <div className="add_btn text-end mb-3">
+                            <span
+                              className="btn btn-primary"
+                              onClick={addSurgicalHistory}
+                            >
+                              Add
+                            </span>
+                          </div>
+                          <div
+                            className="table-responsive"
+                            style={{ borderTop: "1px solid #bbbaba" }}
+                          >
+                            <table className="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Title</th>
+                                  <th scope="col">Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {allSurgery.map((item, index) => (
+                                  <tr key={index}>
+                                    <td>{item.name}</td>
+                                    <td>{item.date}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <span
+                            className="btn btn-primary"
+                            onClick={submitSurgicalHistory}
+                          >
+                            Save changes
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1094,21 +1089,10 @@ const MedicalHistory = ({ medicalHistory, patientId }) => {
                     </tbody>
                   </table>
                 </div>
-                <div className="gen-form-soft-button mt-3">
-                  <div className="row">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                      <div
-                        className="right-button"
-                        style={{ textAlign: "right" }}
-                      >
-                        <button type="submit" className="btn btn-success">
-                          Save Changes
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="gen-form-soft-button mt-3 text-end">
+                  <button type="submit" className="btn btn-success">
+                    Save Changes
+                  </button>
                 </div>
               </form>
             </div>
