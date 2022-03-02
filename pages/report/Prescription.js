@@ -525,11 +525,7 @@ const Prescription = () => {
             style={{ background: "linear-gradient(45deg, #116aa1, #720330)" }}
           >
             <div className="row align-items-center pt-3 px-3">
-              <div className="col-md-4">
-                <p className="text-light text-start">
-                  For next appointment click <a href>this link</a>
-                </p>
-              </div>
+              <div className="col-md-4"></div>
               <div className="col-md-4">
                 <div className="banner-logo text-center mb-2">
                   <img src="../assets/img/rims-logo-white.png" height="50px" />
@@ -541,11 +537,7 @@ const Prescription = () => {
                   A unit of Retar Mediserve Pvt. Ltd.
                 </p>
               </div>
-              <div className="col-md-4">
-                <p className="text-light text-end">
-                  For appointment click <a href>this link</a>
-                </p>
-              </div>
+              <div className="col-md-4"></div>
             </div>
           </footer>
         </div>

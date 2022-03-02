@@ -1,6 +1,6 @@
-import Assesment from "./assesment";
+import Assesment from "./Assesment";
 import EPrescription from "./EPrescription";
-import HistoryOfPresentIllness from "./historyOfPresentIllness";
+import HistoryOfPresentIllness from "./HistoryOfPresentIllness";
 import ClinicalAssessment from "./ClinicalAssessment";
 
 export {
