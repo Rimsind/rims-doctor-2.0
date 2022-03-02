@@ -1,5 +1,3 @@
-import React from "react";
-
 const ClinicalAssessment = () => {
   const skin = [
     "No rashes or other changes",
@@ -522,7 +520,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -586,7 +584,7 @@ const ClinicalAssessment = () => {
               <div className="row align-items-center mb-3">
                 <div className="col-5">
                   <select
-                    class="form-select"
+                    className="form-select"
                     aria-label="Default select example"
                   >
                     <option selected>Select any one</option>
@@ -648,7 +646,7 @@ const ClinicalAssessment = () => {
               <div className="row align-items-center mb-3">
                 <div className="col-5">
                   <select
-                    class="form-select"
+                    className="form-select"
                     aria-label="Default select example"
                   >
                     <option selected>Select any one</option>
@@ -710,7 +708,7 @@ const ClinicalAssessment = () => {
               <div className="row align-items-center mb-3">
                 <div className="col-5">
                   <select
-                    class="form-select"
+                    className="form-select"
                     aria-label="Default select example"
                   >
                     <option selected>Select any one</option>
@@ -772,7 +770,7 @@ const ClinicalAssessment = () => {
               <div className="row align-items-center mb-3">
                 <div className="col-5">
                   <select
-                    class="form-select"
+                    className="form-select"
                     aria-label="Default select example"
                   >
                     <option selected>Select any one</option>
@@ -834,7 +832,7 @@ const ClinicalAssessment = () => {
               <div className="row align-items-center mb-3">
                 <div className="col-5">
                   <select
-                    class="form-select"
+                    className="form-select"
                     aria-label="Default select example"
                   >
                     <option selected>Select any one</option>
@@ -898,7 +896,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -964,7 +962,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1030,7 +1028,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1096,7 +1094,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1162,7 +1160,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1228,7 +1226,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1294,7 +1292,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1360,7 +1358,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1426,7 +1424,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1492,7 +1490,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1558,7 +1556,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1624,7 +1622,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1690,7 +1688,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
@@ -1758,7 +1756,7 @@ const ClinicalAssessment = () => {
                   <div className="row align-items-center mb-3">
                     <div className="col-5">
                       <select
-                        class="form-select"
+                        className="form-select"
                         aria-label="Default select example"
                       >
                         <option selected>Select any one</option>
