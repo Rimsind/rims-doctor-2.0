@@ -26,18 +26,31 @@ const SubjectiveInformation = () => {
   const { id } = useRouter().query;
   const { auth } = useAuth();
 
-  const [patientData, setPatientData] = useState({});
+  // const [patientData, setPatientData] = useState({});
 
-  useEffect(async () => {
-    const res = await axios.get(`${apiUrl}/appointments/${id}`, {
-      headers: {
-        authorization: `Bearer ${auth.token}`,
-      },
-    });
+  // useEffect(async () => {
+  //   const res = await axios.get(`${apiUrl}/appointments/${id}`, {
+  //     headers: {
+  //       authorization: `Bearer ${auth.token}`,
+  //     },
+  //   });
 
-    const result = await res.data;
-    return result, setPatientData(result);
-  }, []);
+  //   const result = await res.data;
+  //   return result, setPatientData(result);
+  // }, []);
+
+  const { data: patientData } = useSWR(
+    `${apiUrl}/appointments/${id}`,
+    async (url) => {
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+      });
+      const result = res.data;
+      return result;
+    }
+  );
 
   return (
     <>
@@ -197,6 +210,7 @@ const SubjectiveInformation = () => {
                             generalInformation={
                               patientData?.patient?.generalInformation
                             }
+                            updated_at={patientData?.updated_at}
                           />
                         </div>
                         <div
@@ -207,6 +221,7 @@ const SubjectiveInformation = () => {
                           <SocialHistory
                             patientId={patientData?.patient?.id}
                             socialHistory={patientData?.patient?.socialHistory}
+                            updated_at={patientData?.updated_at}
                           />
                         </div>
                         <div
@@ -219,6 +234,7 @@ const SubjectiveInformation = () => {
                             employmentStatus={
                               patientData?.patient?.employmentStatus
                             }
+                            updated_at={patientData?.updated_at}
                           />
                         </div>
                         <div
@@ -231,6 +247,7 @@ const SubjectiveInformation = () => {
                             medicalHistory={
                               patientData?.patient?.medicalHistory
                             }
+                            updated_at={patientData?.updated_at}
                           />
                         </div>
                         <div
@@ -243,6 +260,7 @@ const SubjectiveInformation = () => {
                             functionalStatus={
                               patientData?.patient?.functionalStatus
                             }
+                            updated_at={patientData?.updated_at}
                           />
                         </div>
                         <div
@@ -252,7 +270,7 @@ const SubjectiveInformation = () => {
                         >
                           <FamilyHistory
                             patientId={patientData?.patient?.id}
-                            familyHistory={patientData?.patient?.familyHistory}
+                            familyHistory={patientData?.familyHistory}
                           />
                         </div>
                         <div
@@ -262,6 +280,10 @@ const SubjectiveInformation = () => {
                         >
                           <MedicalRecords
                             patientId={patientData?.patient?.id}
+                            updated_at={patientData?.patient?.updated_at}
+                            upload_medical_record={
+                              patientData?.upload_medical_record
+                            }
                           />
                         </div>
                       </div>

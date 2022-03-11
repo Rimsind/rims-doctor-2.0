@@ -1,6 +1,6 @@
 import MainLayout from "components/layout/MainLayout";
-import "../public/assets/css/feathericon.min.css";
-import "../public/assets/plugins/morris/morris.css";
+// import "../public/assets/css/feathericon.min.css";
+// import "../public/assets/plugins/morris/morris.css";
 import "../public/assets/css/style.css";
 import "../public/assets/css/bootstrap.min.css";
 import "../public/assets/css/style2.css";
