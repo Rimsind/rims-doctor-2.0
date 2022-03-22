@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Dashboard = () => {
   const { auth } = useAuth();
-
+  console.log(auth);
   const { data } = useSWR(
     `${apiUrl}/doctors/${auth.user?.profileId}`,
     async (url) => {

@@ -16,7 +16,7 @@ const ProfileSettings = ({ doctor }) => {
                     className="form-control"
                     id="validationCustom01"
                     placeholder="First name"
-                    defaultValue={!!doctor.firstName ? doctor.firstName : ""}
+                    defaultValue={!!doctor?.firstName ? doctor.firstName : ""}
                   />
                   <div className="valid-feedback">Looks good!</div>
                 </div>
@@ -27,7 +27,7 @@ const ProfileSettings = ({ doctor }) => {
                     className="form-control"
                     id="validationCustom02"
                     placeholder="Last name"
-                    defaultValue={!!doctor.lastName ? doctor.lastName : ""}
+                    defaultValue={!!doctor?.lastName ? doctor.lastName : ""}
                   />
                   <div className="valid-feedback">Looks good!</div>
                 </div>
@@ -40,7 +40,7 @@ const ProfileSettings = ({ doctor }) => {
                     className="form-control"
                     id="validationCustom01"
                     placeholder="Your Email Id"
-                    defaultValue={!!doctor.email ? doctor.email : ""}
+                    defaultValue={!!doctor?.email ? doctor.email : ""}
                   />
                   <div className="valid-feedback">Looks good!</div>
                 </div>
@@ -51,7 +51,7 @@ const ProfileSettings = ({ doctor }) => {
                     className="form-control"
                     id="validationCustom02"
                     placeholder="Your Phone No."
-                    defaultValue={!!doctor.phone ? doctor.phone : ""}
+                    defaultValue={!!doctor?.phone ? doctor.phone : ""}
                   />
                   <div className="valid-feedback">Looks good!</div>
                 </div>
@@ -65,7 +65,7 @@ const ProfileSettings = ({ doctor }) => {
                     id="validationCustom01"
                     placeholder="MBBS"
                     defaultValue={
-                      !!doctor.qualification ? doctor.qualification : ""
+                      !!doctor?.qualification ? doctor.qualification : ""
                     }
                   />
                   <div className="valid-feedback">Looks good!</div>
@@ -80,7 +80,7 @@ const ProfileSettings = ({ doctor }) => {
                     id="validationCustom02"
                     placeholder="Your Phone No."
                     defaultValue={
-                      !!doctor.experienceInYrs ? doctor.experienceInYrs : ""
+                      !!doctor?.experienceInYrs ? doctor.experienceInYrs : ""
                     }
                   />
                   <div className="valid-feedback">Looks good!</div>
@@ -95,10 +95,10 @@ const ProfileSettings = ({ doctor }) => {
                   >
                     <option
                       defaultChecked={
-                        !!doctor.specialty?.id ? doctor.specialty?.id : ""
+                        !!doctor?.specialty?.id ? doctor.specialty?.id : ""
                       }
                     >
-                      {!!doctor.specialty?.name ? doctor.specialty?.name : ""}
+                      {!!doctor?.specialty?.name ? doctor.specialty?.name : ""}
                     </option>
                     {specialties?.map((item, index) => (
                       <option value={item.id} key={index}>
@@ -115,7 +115,7 @@ const ProfileSettings = ({ doctor }) => {
                     className="form-control"
                     id="validationCustom02"
                     placeholder="Your Skype ID"
-                    defaultValue={!!doctor.skype_id ? doctor.skype_id : ""}
+                    defaultValue={!!doctor?.skype_id ? doctor.skype_id : ""}
                   />
                   <div className="valid-feedback">Looks good!</div>
                 </div>
@@ -128,7 +128,7 @@ const ProfileSettings = ({ doctor }) => {
                       placeholder="Enter Your Bio"
                       id="floatingTextarea"
                       rows="10"
-                      defaultValue={!!doctor.bio ? doctor.bio : ""}
+                      defaultValue={!!doctor?.bio ? doctor.bio : ""}
                     ></textarea>
                     <label htmlFor="floatingTextarea">Your Bio</label>
                   </div>
