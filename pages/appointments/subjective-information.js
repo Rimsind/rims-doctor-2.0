@@ -184,76 +184,84 @@ const SubjectiveInformation = () => {
                           id="tab-8"
                           className="tab-pane fade show active"
                         >
-                          <CheifComplaints appointmentId={id} />
+                          {/* <CheifComplaints appointmentId={id} /> */}
+                          <p>Cheif Complaints</p>
                         </div>
                         <div
                           role="tabpanel"
                           id="tab-1"
                           className="tab-pane fade  "
                         >
-                          <GeneralInfo
+                          {/* <GeneralInfo
                             patientId={data?.patient?.id}
                             generalInformation={
                               data?.patient?.generalInformation
                             }
-                          />
+                          /> */}
+                          <p>General Info</p>
                         </div>
                         <div
                           role="tabpanel"
                           id="tab-2"
                           className="tab-pane fade"
                         >
-                          <SocialHistory
+                          {/* <SocialHistory
                             patientId={data?.patient?.id}
                             socialHistory={data?.patient?.socialHistory}
-                          />
+                          /> */}
+                          <p>Social History</p>
                         </div>
                         <div
                           role="tabpanel"
                           id="tab-3"
                           className="tab-pane fade"
                         >
-                          <EmploymentStatus
+                          {/* <EmploymentStatus
                             patientId={data?.patient?.id}
                             employmentStatus={data?.patient?.employmentStatus}
-                          />
+                          /> */}
+                          <p>Employment Status</p>
                         </div>
                         <div
                           role="tabpanel"
                           id="tab-4"
                           className="tab-pane fade"
                         >
-                          <MedicalHistory
+                          {/* <MedicalHistory
                             patientId={data?.patient?.id}
                             medicalHistory={data?.patient?.medicalHistory}
-                          />
+                          /> */}
+                          <p>Medical History</p>
                         </div>
                         <div
                           role="tabpanel"
                           id="tab-5"
                           className="tab-pane fade"
                         >
-                          <FunctionalStatus
+                          {/* <FunctionalStatus
                             patientId={data?.patient?.id}
                             functionalStatus={data?.patient?.functionalStatus}
-                          />
+                          /> */}
+                          <p>Functional Status</p>
                         </div>
                         <div
                           role="tabpanel"
                           id="tab-6"
                           className="tab-pane fade"
                         >
-                          <FamilyHistory
+                          {/* <FamilyHistory
                             patientId={data?.patient?.id}
                             familyHistory={data?.patient?.familyHistory}
-                          />
+                          /> */}
+                          <p>Family History</p>
                         </div>
                         <div
                           role="tabpanel"
                           id="tab-7"
                           className="tab-pane fade"
                         >
-                          <MedicalRecords patientId={data?.patient?.id} />
+                          {/* <MedicalRecords patientId={data?.patient?.id} /> */}
+                          <p>Medical Records</p>
                         </div>
                       </div>
                     </div>
